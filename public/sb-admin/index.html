@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <meta name="color-scheme" content="dark" />
+  <title>Admin Panel — STUDY BEAST</title>
+  <link rel="icon" type="image/png" href="/icons/favicon-48.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Manrope:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/assets/app.css?v=1" />
+  <link rel="stylesheet" href="/assets/admin.css?v=1" />
+</head>
+<body class="admin">
+  <div class="admin-boot" id="boot"><span class="spinner big"></span></div>
+
+  <!-- ============ AUTH ============ -->
+  <div class="page auth" id="authView" hidden>
+    <div class="brand">
+      <img class="brand-logo small-logo" src="/img/logo-240.webp" alt="STUDY BEAST logo" width="1038" height="1008" />
+      <h1 class="brand-name">STUDY BEAST</h1>
+      <p class="brand-sub">Admin Panel</p>
+    </div>
+
+    <form class="card auth-card" id="loginForm" novalidate>
+      <h2>ADMIN LOGIN</h2>
+      <label class="fld"><span>Phone Number</span>
+        <input type="tel" name="phone" inputmode="numeric" autocomplete="username" maxlength="15" required />
+      </label>
+      <label class="fld"><span>Password</span>
+        <div class="pw-wrap">
+          <input type="password" name="password" autocomplete="current-password" maxlength="128" required />
+          <button type="button" class="eye" data-eye aria-label="Show password" aria-pressed="false">👁</button>
+        </div>
+      </label>
+      <p class="form-msg" data-msg role="alert"></p>
+      <button class="btn-gold" type="submit"><span class="btn-label">LOGIN</span><span class="spinner"></span></button>
+      <button class="link-btn" type="button" id="forgotLink">FORGOT PASSWORD?</button>
+    </form>
+
+    <form class="card auth-card" id="forgotPhoneForm" hidden novalidate>
+      <h2>RESET PASSWORD</h2>
+      <p class="muted small">Enter the registered admin phone number. An OTP will be sent to it by SMS.</p>
+      <label class="fld"><span>Registered Phone Number</span>
+        <input type="tel" name="phone" inputmode="numeric" autocomplete="tel" maxlength="15" required />
+      </label>
+      <p class="form-msg" data-msg role="alert"></p>
+      <button class="btn-gold" type="submit"><span class="btn-label">SEND OTP</span><span class="spinner"></span></button>
+      <button class="link-btn" type="button" data-back>← Back to login</button>
+    </form>
+
+    <form class="card auth-card" id="forgotOtpForm" hidden novalidate>
+      <h2>ENTER OTP</h2>
+      <p class="muted small" id="otpInfo">Enter the code sent to your phone.</p>
+      <label class="fld"><span>OTP Code</span>
+        <input type="text" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" required />
+      </label>
+      <p class="form-msg" data-msg role="alert"></p>
+      <button class="btn-gold" type="submit"><span class="btn-label">VERIFY OTP</span><span class="spinner"></span></button>
+      <button class="link-btn" type="button" id="resendOtp">Resend OTP</button>
+      <button class="link-btn" type="button" data-back>← Back to login</button>
+    </form>
+
+    <form class="card auth-card" id="forgotNewForm" hidden novalidate>
+      <h2>CREATE NEW PASSWORD</h2>
+      <label class="fld"><span>New Password</span>
+        <div class="pw-wrap">
+          <input type="password" name="password" autocomplete="new-password" minlength="8" maxlength="128" required />
+          <button type="button" class="eye" data-eye aria-label="Show password" aria-pressed="false">👁</button>
+        </div>
+      </label>
+      <label class="fld"><span>Confirm New Password</span>
+        <input type="password" name="confirm" autocomplete="new-password" minlength="8" maxlength="128" required />
+      </label>
+      <p class="muted small">At least 8 characters.</p>
+      <p class="form-msg" data-msg role="alert"></p>
+      <button class="btn-gold" type="submit"><span class="btn-label">SAVE NEW PASSWORD</span><span class="spinner"></span></button>
+    </form>
+  </div>
+
+  <!-- ============ DASHBOARD ============ -->
+  <div class="dash" id="dashView" hidden>
+    <header class="dash-top">
+      <img src="/img/logo-240.webp" alt="" width="40" height="39" />
+      <div class="dash-title"><strong>STUDY BEAST</strong><span>Admin Dashboard</span></div>
+      <a class="dash-link" href="/" target="_blank" rel="noopener">View site ↗</a>
+      <button class="dash-link" id="logoutBtn" type="button">Logout</button>
+    </header>
+    <nav class="tabs" id="tabs" aria-label="Dashboard sections"></nav>
+    <main class="dash-main" id="dashMain"></main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/assets/admin.js?v=1" type="module"></script>
+</body>
+</html>

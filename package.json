@@ -1,0 +1,14 @@
+{
+  "name": "study-beast",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "STUDY BEAST by Mr Irshad — member access platform with hidden admin panel",
+  "dependencies": {
+    "@netlify/blobs": "^11.1.3",
+    "@netlify/database": "^2.0.1"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^6.0.2"
+  }
+}
